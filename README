@@ -1,0 +1,175 @@
+# 🌎 Global Superstore — Advanced Data Modeling Project
+
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)
+![SQL](https://img.shields.io/badge/SQL-Data%20Modeling-lightgrey)
+![Tableau](https://img.shields.io/badge/Tableau-Visualization-orange?logo=tableau)
+![Coursera](https://img.shields.io/badge/Meta-Database%20Engineer-blue)
+
+## 📌 Overview
+
+This project was completed as part of **Course 7 — Advanced Data Modeling** in the **Meta Database Engineer Professional Certificate** on Coursera.
+
+I used the **Global Superstore dataset** to practice designing a relational database, implementing it in MySQL, and transforming it into a **star schema** for analytical purposes.
+
+I also created an interactive **Tableau dashboard** to analyze sales and profitability across the United States.
+
+---
+
+## 🎯 What I Built
+
+### 🗄️ Relational Database
+
+Designed and implemented a relational database in MySQL using:
+
+* `Customers`
+* `Products`
+* `DeliveryAddress`
+* `Shipping`
+* `Orders`
+
+The database uses **primary keys and foreign keys** to establish relationships between the tables.
+
+### ⭐ Star Schema
+
+Created a dimensional model consisting of:
+
+* `Sales` — Fact table
+* `DimProducts` — Product dimension
+* `DimLocation` — Location dimension
+* `DimTime` — Time dimension
+
+The star schema was populated using SQL.
+
+### 📊 Tableau Dashboard
+
+Created a Tableau dashboard containing:
+
+* **Sales in USA** — Sales by state
+* **USA Sales Trends** — Sales trends over time
+* **Profits in USA** — Profitability by state
+
+[**View the Tableau Dashboard**](https://public.tableau.com/app/profile/md.faisal.alam6840/viz/GlobalSuperStore_17888527610020/Dashboard1?publish=yes)
+
+> **Note:** Tableau was used independently for visualization using the provided Global Superstore dataset, as the course project did not require connecting Tableau to the MySQL database.
+
+---
+
+## 🏗️ Project Workflow
+
+```text
+Global Superstore Dataset
+          │
+          ├──────────────► MySQL
+          │                 │
+          │                 ▼
+          │           Relational Model
+          │                 │
+          │                 ▼
+          │            Star Schema
+          │
+          └──────────────► Tableau
+                            │
+                            ▼
+                     Interactive Dashboard
+```
+
+---
+
+## 🧩 Database Design
+
+### ER Diagram
+
+![ER Diagram](er_diagram.png)
+
+### Star Schema
+
+![Star Schema](Step3_StarSchema_Diagram.png)
+
+---
+
+## 🔄 SQL Transformation
+
+The star schema is created and populated using:
+
+```text
+Step3_StarSchema.sql
+```
+
+The SQL process includes:
+
+* Creating dimension tables
+* Populating dimensions
+* Generating surrogate keys
+* Loading the `Sales` fact table
+* Connecting fact records to dimension keys
+
+---
+
+## 📁 Repository Structure
+
+```text
+advanced-data-modeling-project/
+
+├── GlobalSuperStore_Data.xlsx
+├── create_database.sql
+├── Step3_StarSchema.sql
+├── GlobalSuperStore.twb
+├── er_diagram.png
+├── Step3_StarSchema_Diagram.png
+└── star_schema_verification.jpg
+```
+
+| File                           | Description                                  |
+| ------------------------------ | -------------------------------------------- |
+| `GlobalSuperStore_Data.xlsx`   | Source dataset                               |
+| `create_database.sql`          | Relational database creation script          |
+| `Step3_StarSchema.sql`         | Star schema creation and data-loading script |
+| `GlobalSuperStore.twb`         | Tableau workbook                             |
+| `er_diagram.png`               | ER diagram                                   |
+| `Step3_StarSchema_Diagram.png` | Star schema diagram                          |
+| `star_schema_verification.jpg` | Star schema verification                     |
+
+---
+
+## 🛠️ Technologies
+
+* **MySQL**
+* **SQL**
+* **MySQL Workbench**
+* **Tableau**
+* **Tableau Public**
+* **Database Modeling**
+* **Star Schema**
+* **Dimensional Modeling**
+
+---
+
+## 🧠 Key Skills Demonstrated
+
+* Relational database design
+* Database normalization
+* ER modeling
+* Primary and foreign keys
+* Dimensional modeling
+* Star schema design
+* SQL data transformation
+* Data analysis
+* Tableau dashboard development
+
+---
+
+## 🎓 Course
+
+**Meta Database Engineer Professional Certificate**
+
+**Course 7 — Advanced Data Modeling**
+
+This project allowed me to apply database modeling concepts to a real-world-style business dataset and gain practical experience with both relational and dimensional data models.
+
+---
+
+## 👨‍💻 Author
+
+**Md. Faisal Alam**
+
+Database Engineering | SQL | MySQL | Data Modeling | Tableau
