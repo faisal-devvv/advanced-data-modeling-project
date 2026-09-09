@@ -1,6 +1,6 @@
 # 📊 Advanced Data Modeling — Global Superstore
 
-[![Meta Database Engineer](https://img.shields.io/badge/Meta_Database_Engineer-Capstone_%C2%B7_26%2F26_(100%25)-0860E5?style=flat-square&logo=meta&logoColor=white)](https://www.coursera.org/account/accomplishments/professional-cert/certificate/ECF0PIQNDK1P)
+[![Meta Database Engineer](https://img.shields.io/badge/Meta_Database_Engineer-Advanced_Data_Modeling-0860E5?style=flat-square&logo=meta&logoColor=white)](https://www.coursera.org/account/accomplishments/professional-cert/certificate/ECF0PIQNDK1P)
 
 Raw sales data, transformed through a full database design pipeline: normalized schema → dimensional star schema → interactive Tableau dashboard.
 
@@ -18,7 +18,7 @@ Most beginner data projects start with a clean CSV and jump straight to charts. 
 2. **Transform it into a star schema** — the dimensional model used by BI tools for fast analytical queries
 3. **Build a dashboard** on top, with real written insights, not just default charts
 
-This repo is the capstone project of the **Meta Database Engineer Professional Certificate** (Coursera — *Advanced Data Modeling*), peer-graded **26/26 (100%)**, and extended beyond the course brief with a schema modeled 1:1 from the real dataset.
+This repo is a core project from the **Meta Database Engineer Professional Certificate** (Course 7: *Advanced Data Modeling*), extended beyond the course brief with a schema modeled 1:1 from the real dataset.
 
 ### Course requirements → deliverables in this repo
 
@@ -104,4 +104,4 @@ The normalized tables are then reshaped into a **fact table** (`Sales`, holding 
 
 ## Built by
 
-**Faisal** — [GitHub](https://github.com/faisal-devvv) · Capstone of the [Meta Database Engineer Professional Certificate](https://www.coursera.org/account/accomplishments/professional-cert/certificate/ECF0PIQNDK1P)
+**Faisal** — [GitHub](https://github.com/faisal-devvv) · Project from the [Meta Database Engineer Professional Certificate](https://www.coursera.org/account/accomplishments/professional-cert/certificate/ECF0PIQNDK1P)
