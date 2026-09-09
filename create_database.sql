@@ -18,11 +18,10 @@ USE `mydb` ;
 -- Table `mydb`.`Customers`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Customers` (
-  `CustomerID` INT NOT NULL,
-  `FullName` VARCHAR(255) NULL,
-  `ContactNumber` VARCHAR(45) NULL,
-  `Email` VARCHAR(255) NULL,
-  PRIMARY KEY (`CustomerID`))
+  `Customer_ID` VARCHAR(50) NOT NULL,
+  `Customer_Name` VARCHAR(255) NOT NULL,
+  `Segment` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`Customer_ID`))
 ENGINE = InnoDB;
 
 
@@ -30,13 +29,11 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Products` (
-  `ProductID` INT NOT NULL,
-  `ProductName` VARCHAR(255) NULL,
-  `AmountInStock` INT NULL,
-  `Price` DECIMAL NULL,
-  `Category` VARCHAR(45) NULL,
-  `Subcategory` VARCHAR(45) NULL,
-  PRIMARY KEY (`ProductID`))
+  `Product_ID` VARCHAR(50) NOT NULL,
+  `Product_Name` VARCHAR(255) NOT NULL,
+  `Category` VARCHAR(50) NOT NULL,
+  `Sub_Category` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`Product_ID`))
 ENGINE = InnoDB;
 
 
@@ -44,13 +41,14 @@ ENGINE = InnoDB;
 -- Table `mydb`.`DeliveryAddress`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`DeliveryAddress` (
-  `AddressID` INT NOT NULL,
-  `Street` VARCHAR(255) NULL,
-  `PostCode` VARCHAR(45) NULL,
-  `City` VARCHAR(45) NULL,
-  `State` VARCHAR(45) NULL,
-  `Country` VARCHAR(45) NULL,
-  PRIMARY KEY (`AddressID`))
+  `Address_ID` INT NOT NULL AUTO_INCREMENT,
+  `Postal_Code` VARCHAR(20) NULL,
+  `City` VARCHAR(100) NOT NULL,
+  `State` VARCHAR(100) NOT NULL,
+  `Country` VARCHAR(100) NOT NULL,
+  `Region` VARCHAR(50) NOT NULL,
+  `Market` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`Address_ID`))
 ENGINE = InnoDB;
 
 
@@ -58,16 +56,16 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Shipping`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Shipping` (
-  `ShipID` INT NOT NULL,
-  `ShipDate` DATE NULL,
-  `ShipMode` VARCHAR(45) NULL,
-  `ShipCost` DECIMAL NULL,
-  `AddressID` INT NOT NULL,
-  PRIMARY KEY (`ShipID`),
-  INDEX `fk_Shipping_DeliveryAddress1_idx` (`AddressID` ASC) VISIBLE,
+  `Ship_ID` INT NOT NULL AUTO_INCREMENT,
+  `Ship_Date` DATE NOT NULL,
+  `Ship_Mode` VARCHAR(50) NOT NULL,
+  `Shipping_Cost` DECIMAL(10,2) NOT NULL,
+  `Address_ID` INT NOT NULL,
+  PRIMARY KEY (`Ship_ID`),
+  INDEX `fk_Shipping_DeliveryAddress1_idx` (`Address_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Shipping_DeliveryAddress1`
-    FOREIGN KEY (`AddressID`)
-    REFERENCES `mydb`.`DeliveryAddress` (`AddressID`)
+    FOREIGN KEY (`Address_ID`)
+    REFERENCES `mydb`.`DeliveryAddress` (`Address_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -77,32 +75,34 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Orders`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Orders` (
-  `OrderID` INT NOT NULL,
-  `DeliveryID` INT NULL,
-  `Quantity` INT NULL,
-  `TotalCost` DECIMAL NULL,
-  `OrderPriority` VARCHAR(45) NULL,
-  `Discount` DECIMAL NULL,
-  `CustomerID` INT NOT NULL,
-  `ProductID` INT NOT NULL,
-  `ShipID` INT NOT NULL,
-  PRIMARY KEY (`OrderID`),
-  INDEX `fk_Orders_Customers_idx` (`CustomerID` ASC) VISIBLE,
-  INDEX `fk_Orders_Products1_idx` (`ProductID` ASC) VISIBLE,
-  INDEX `fk_Orders_Shipping1_idx` (`ShipID` ASC) VISIBLE,
+  `Row_ID` INT NOT NULL,
+  `Order_ID` VARCHAR(50) NOT NULL,
+  `Order_Date` DATE NOT NULL,
+  `Sales` DECIMAL(12,2) NOT NULL,
+  `Quantity` INT NOT NULL,
+  `Discount` DECIMAL(4,2) NOT NULL,
+  `Profit` DECIMAL(12,2) NOT NULL,
+  `Order_Priority` VARCHAR(50) NULL,
+  `Customer_ID` VARCHAR(50) NOT NULL,
+  `Product_ID` VARCHAR(50) NOT NULL,
+  `Ship_ID` INT NOT NULL,
+  PRIMARY KEY (`Row_ID`),
+  INDEX `fk_Orders_Customers_idx` (`Customer_ID` ASC) VISIBLE,
+  INDEX `fk_Orders_Products1_idx` (`Product_ID` ASC) VISIBLE,
+  INDEX `fk_Orders_Shipping1_idx` (`Ship_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Orders_Customers`
-    FOREIGN KEY (`CustomerID`)
-    REFERENCES `mydb`.`Customers` (`CustomerID`)
+    FOREIGN KEY (`Customer_ID`)
+    REFERENCES `mydb`.`Customers` (`Customer_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Orders_Products1`
-    FOREIGN KEY (`ProductID`)
-    REFERENCES `mydb`.`Products` (`ProductID`)
+    FOREIGN KEY (`Product_ID`)
+    REFERENCES `mydb`.`Products` (`Product_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Orders_Shipping1`
-    FOREIGN KEY (`ShipID`)
-    REFERENCES `mydb`.`Shipping` (`ShipID`)
+    FOREIGN KEY (`Ship_ID`)
+    REFERENCES `mydb`.`Shipping` (`Ship_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
